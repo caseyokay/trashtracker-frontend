@@ -1,10 +1,16 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 
 class Welcome extends React.Component{
 
 render(){
+    //this.props.usersArray.id
     return(
-        <p>Welcome to the Trash App</p>
+        <>
+        <NavLink to={`/users/26`}>
+        <h3>Welcome! Click Here to see your User Page</h3>
+        </NavLink>
+        </>
     ) 
 }
 }
