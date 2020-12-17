@@ -31,7 +31,17 @@ class App extends React.Component{
   };
 
   addNewTrashItem = (trashObj) => {
-    console.log("Adding new trash in app:", trashObj)
+    console.log("Adding new trash in app:", trashObj);
+    fetch("http://localhost:3000/api/v1/trash_items",{
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+        "Accepts": "application/json"
+      },
+      body: JSON.stringify(trashObj),
+    })
+    .then(resp => resp.json())
+    .then(newTrashItem => this.setState({trashItemsArray: [...this.state.trashItemsArray, newTrashItem]}));
   }
 
   render(){
