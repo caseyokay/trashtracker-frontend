@@ -8,19 +8,33 @@ import UserProfile from './Containers/UserProfile';
 class App extends React.Component{
   state={
     usersArray: [],
+    trashItemsArray: [],
+    trashCategoriesArray: []
   };
 
-  componentDidMount(){
-    fetch("http://localhost:3000/api/v1/users")
-    .then(resp => resp.json())
-    .then(data => this.setState({usersArray: data}));
+  componentDidMount() {
+    Promise.all([
+    fetch("http://localhost:3000/api/v1/users"),
+    fetch("http://localhost:3000/api/v1/trash_items"),
+    fetch("http://localhost:3000/api/v1/trash_categories")])
+    .then(([res1, res2, res3]) => {
+       return Promise.all([res1.json(), res2.json(), res3.json()]) 
+    })
+    .then(([data1, data2, data3]) =>{
+      this.setState({
+        usersArray:data1,
+        trashItemsArray:data2,
+        trashCategoriesArray:data3
+      })
+    })
+    console.log("CDM: ", this.state)
   };
 
   render(){
     return(
       <>
       <Switch>
-      <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray} />} />
+      <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray} trashCategoriesArray={this.state.trashCategoriesArray}/>} />
       <Route path="/users/32" render={()=> <UserProfile usersArray={this.state.usersArray}/>} />
       <h1>Trash Tracker App</h1>
       </Switch>
