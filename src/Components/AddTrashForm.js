@@ -5,13 +5,36 @@ class AddTrashForm extends React.Component{
         description: "",
         date: "",
         user: this.props.currentUser,
-        trash_category: ""
+        trash_category: {}
     }
+
+    changeHandler = (event) => {
+        this.setState({
+          [event.target.name]: event.target.value,
+        });
+        console.log(this.state)
+    };
+
+    localSubmitHandler = (event) => {
+        event.preventDefault();
+        this.props.addNewTrashItem(this.state)
+    };
+
     render(){
-        console.log("Form Props:", this.props)
+        console.log("Form Props",this.props);
         return(
                 <>
-                <h4>Keep track of your daily trash below:</h4>
+                <div>
+                    <form onSubmit={this.localSubmitHandler}>
+                    <input type="text" value={this.state.date} name="date" onChange={this.changeHandler}
+                    /><br/><br/>
+                     <input type="text" value={this.state.description} name="description" onChange={this.changeHandler}
+                    /><br/><br/>
+                     <input type="text" value={this.state.trash_category} name="trash_category" onChange={this.changeHandler}
+                    /><br/><br/>
+                    <button >Submit</button>
+                    </form>
+                </div>
                 </>
         )
     }

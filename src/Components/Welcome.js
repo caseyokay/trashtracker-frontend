@@ -32,7 +32,7 @@ render(){
         <h3>Profile Page</h3>
         </NavLink>
         <h4>Click the images to log some trash, or use the form below:</h4>
-        <AddTrashForm currentUser={this.state.currentUser} landfill={this.state.landfill} compost={this.state.compost} recycling={this.state.recycling}/>
+        <AddTrashForm currentUser={this.state.currentUser} landfill={this.state.landfill} compost={this.state.compost} recycling={this.state.recycling} addNewTrashItem={this.props.addNewTrashItem}/>
         </>
     ) 
 }

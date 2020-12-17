@@ -30,11 +30,15 @@ class App extends React.Component{
     console.log("CDM: ", this.state)
   };
 
+  addNewTrashItem = (trashObj) => {
+    console.log("Adding new trash in app:", trashObj)
+  }
+
   render(){
     return(
       <>
       <Switch>
-      <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray} trashCategoriesArray={this.state.trashCategoriesArray}/>} />
+      <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem}/>} />
       <Route path="/users/32" render={()=> <UserProfile usersArray={this.state.usersArray}/>} />
       <h1>Trash Tracker App</h1>
       </Switch>
