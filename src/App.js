@@ -44,12 +44,27 @@ class App extends React.Component{
     .then(newTrashItem => this.setState({trashItemsArray: [...this.state.trashItemsArray, newTrashItem]}));
   }
 
+
+  deleteTrashItem = (trashObj) => {
+    console.log("DELETING", trashObj.id)
+    fetch(`http://localhost:3000/api/v1/trash_items/${trashObj.id}`, {
+        method: "DELETE"
+    })
+    .then(resp => resp.json())
+    .then(()=>{
+        let copyTrashItemsArray = [...this.state.trashItemsArray]
+        let newTrashItemsArray = copyTrashItemsArray.filter(e => e.id !== trashObj.id)
+        this.setState({trashItemsArray: newTrashItemsArray})
+    })
+    .catch(console.log)
+}
+
   render(){
     return(
       <>
       <Switch>
       <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem}/>} />
-      <Route path="/users/32" render={()=> <UserProfile usersArray={this.state.usersArray}/>} />
+      <Route path="/users/32" render={()=> <UserProfile usersArray={this.state.usersArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem}/>} />
       <h1>Trash Tracker App</h1>
       </Switch>
       </>

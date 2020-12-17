@@ -39,14 +39,14 @@ class AddTrashForm extends React.Component{
                      <input type="text" value={this.state.description} name="description" onChange={this.changeHandler}
                     /><br/><br/>
                     <label>Category:</label><br/><br/>
-                    <select onChange={this.objChangeHandler}>
+                    {/* <select onChange={this.objChangeHandler}>
                     {this.state.trashCatArray.map((option, index) =>
                     <option key={index}
                     value={JSON.stringify(option)}>
                         {option.kind}
                     </option>
                     )}
-                    </select>
+                    </select> */}
                      <input type="text" value={this.state.trash_category} name="trash_category" onChange={this.changeHandler}
                     /><br/><br/>
                     <button >Submit</button>

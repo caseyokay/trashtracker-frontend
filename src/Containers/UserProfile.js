@@ -8,10 +8,9 @@ renderProfileCard = () => {
     let user32Array = this.props.usersArray.filter(item => {
         return item.id  === 32
     });
-    return user32Array.map(userObj => <ProfileCard key={userObj.id} userObj={userObj}/>);
+    return user32Array.map(userObj => <ProfileCard key={userObj.id} userObj={userObj} deleteTrashItem={this.props.deleteTrashItem}/>);
     
 }
-
 
 render(){
     return(

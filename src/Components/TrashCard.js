@@ -1,6 +1,10 @@
 import React from 'react'
 
 class TrashCard extends React.Component{
+    localDelete= () => {
+        this.props.deleteTrashItem(this.props.trashObj)
+    }
+  
 
     render(){
         return(
@@ -9,6 +13,7 @@ class TrashCard extends React.Component{
             <h4>Date: {this.props.trashObj.date}</h4>
             <img alt="waste img" src={this.props.trashObj.trash_category.image} />
             <h4>Description: {this.props.trashObj.description}</h4>
+            <button onClick={this.localDelete}>Remove</button>
             </span>
         </div>
         )
