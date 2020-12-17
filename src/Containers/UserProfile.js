@@ -1,13 +1,15 @@
 import React from 'react'
 import ProfileCard from '../Components/ProfileCard';
+import TrashCard from '../Components/TrashCard';
 
 class UserProfile extends React.Component{
 
 renderProfileCard = () => {
-    let user26Array = this.props.usersArray.filter(item => {
+    let user32Array = this.props.usersArray.filter(item => {
         return item.id  === 32
     });
-    return user26Array.map(userObj => <ProfileCard key={userObj.id} userObj={userObj}/>);
+    return user32Array.map(userObj => <ProfileCard key={userObj.id} userObj={userObj}/>);
+    
 }
 
 

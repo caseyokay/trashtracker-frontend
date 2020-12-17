@@ -7,7 +7,7 @@ import UserProfile from './Containers/UserProfile';
 
 class App extends React.Component{
   state={
-    usersArray: []
+    usersArray: [],
   };
 
   componentDidMount(){
@@ -20,9 +20,9 @@ class App extends React.Component{
     return(
       <>
       <Switch>
-      <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray}/>} />
+      <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray} />} />
       <Route path="/users/32" render={()=> <UserProfile usersArray={this.state.usersArray}/>} />
-      <h1>App.js Checkkk</h1>
+      <h1>Trash Tracker App</h1>
       </Switch>
       </>
     );
