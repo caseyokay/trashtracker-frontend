@@ -18,11 +18,11 @@ class Welcome extends React.Component{
           this.setState({
             currentUser: newUser
           })
-          console.log("Updated user",this.state.currentUser)
+          console.log("Updated welcome state",this.state.compost)
     }
 
 render(){
-    // console.log("Category Welcome props",this.props.trashCategoriesArray)
+    console.log("Category Welcome props",this.props)
     // console.log(this.state)
     return(
         <>
@@ -31,7 +31,7 @@ render(){
         {/* <NavLink to={`/users/${this.state.currentUser.id}`}> */}
         <h3>Profile Page</h3>
         </NavLink>
-        <h4>Click the images to log some trash, or use the form below:</h4>
+        <h4>Use the form below to log your daily trash:</h4>
         <AddTrashForm currentUser={this.state.currentUser} landfill={this.state.landfill} compost={this.state.compost} recycling={this.state.recycling} addNewTrashItem={this.props.addNewTrashItem}/>
         </>
     ) 

@@ -13,6 +13,7 @@ renderProfileCard = () => {
 }
 
 render(){
+    console.log(this.props)
     return(
         <>
         <h1>User's Profile Page</h1>

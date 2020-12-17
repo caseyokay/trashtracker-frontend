@@ -26,7 +26,7 @@ class App extends React.Component{
         trashItemsArray:data2,
         trashCategoriesArray:data3
       })
-    })
+    });
     console.log("CDM: ", this.state)
   };
 
@@ -48,7 +48,7 @@ class App extends React.Component{
   deleteTrashItem = (trashObj) => {
     console.log("DELETING", trashObj.id)
     fetch(`http://localhost:3000/api/v1/trash_items/${trashObj.id}`, {
-        method: "DELETE"
+        method: "DELETE",
     })
     .then(resp => resp.json())
     .then(()=>{
