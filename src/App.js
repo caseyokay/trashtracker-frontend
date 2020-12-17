@@ -7,14 +7,14 @@ import UserProfile from './Containers/UserProfile';
 
 class App extends React.Component{
   state={
-    usersArray: [],
+    currentUser: {},
     trashItemsArray: [],
-    trashCategoriesArray: []
+    trashCategoriesArray: [],
   };
 
   componentDidMount() {
     Promise.all([
-    fetch("http://localhost:3000/api/v1/users"),
+    fetch("http://localhost:3000/api/v1/users/38"),
     fetch("http://localhost:3000/api/v1/trash_items"),
     fetch("http://localhost:3000/api/v1/trash_categories")])
     .then(([res1, res2, res3]) => {
@@ -22,9 +22,9 @@ class App extends React.Component{
     })
     .then(([data1, data2, data3]) =>{
       this.setState({
-        usersArray:data1,
+        currentUser:data1,
         trashItemsArray:data2,
-        trashCategoriesArray:data3
+        trashCategoriesArray:data3,
       })
     });
     console.log("CDM: ", this.state)
@@ -63,8 +63,8 @@ class App extends React.Component{
     return(
       <>
       <Switch>
-      <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem}/>} />
-      <Route path="/users/32" render={()=> <UserProfile usersArray={this.state.usersArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem}/>} />
+     <Route path="/welcome" render={()=> <Welcome currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
+      <Route path="/users/38" render={()=> <UserProfile usersArray={this.state.usersArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem}/>} />
       <h1>Trash Tracker App</h1>
       </Switch>
       </>
