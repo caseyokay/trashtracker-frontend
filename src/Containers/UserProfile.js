@@ -3,12 +3,13 @@ import ProfileCard from '../Components/ProfileCard';
 
 class UserProfile extends React.Component{
 
-renderUserCard = () => {
+renderProfileCard = () => {
     let user26Array = this.props.usersArray.filter(item => {
         return item.id  === 32
     });
     return user26Array.map(userObj => <ProfileCard key={userObj.id} userObj={userObj}/>);
 }
+
 
 render(){
     // console.log(this.props.usersArray)
@@ -17,9 +18,9 @@ render(){
     // })
     return(
         <>
-        <p>User's Profile Page</p>
+        <h1>User's Profile Page</h1>
         <div className="index">
-           {this.renderUserCard()}
+           {this.renderProfileCard()}
         </div>
         </>
     ) 

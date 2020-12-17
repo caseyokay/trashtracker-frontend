@@ -10,7 +10,7 @@ class ProfileCard extends React.Component{
 
     render(){
         return(
-            <div className="card" >
+            <div className="profileCard" >
                 <h2>Welcome, {this.props.userObj.name}!</h2>
                 {this.renderTrashItems()}
             </div>

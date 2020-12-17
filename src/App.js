@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
@@ -21,7 +20,6 @@ class App extends React.Component{
     return(
       <>
       <Switch>
-
       <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray}/>} />
       <Route path="/users/32" render={()=> <UserProfile usersArray={this.state.usersArray}/>} />
       <h1>App.js Checkkk</h1>

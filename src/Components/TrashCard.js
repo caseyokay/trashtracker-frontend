@@ -4,7 +4,7 @@ class TrashCard extends React.Component{
 
     render(){
         return(
-            <div className="card">
+        <div className="trashCard">
           <span className="content">
           <h2 >{this.props.trashObj.date}</h2>
           <img alt="waste img" src={this.props.trashObj.trash_category.image} />
