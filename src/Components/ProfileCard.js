@@ -16,12 +16,14 @@ class ProfileCard extends React.Component{
 
     renderTrashItems= () => {
         let trashItemsArray = this.props.userObj.trash_items
-        // let filteredArray = trashItemsArray.filter(element => element.kind.toLowerCase().includes(this.state.searchValue.toLowerCase()))
-        return trashItemsArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem}/>);
+        let filteredArray = trashItemsArray.filter(element => element.trash_category.kind.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+        return filteredArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem}/>);
     }
 
 
     render(){
+        let trashItemsArray = this.props.userObj.trash_items
+        console.log("ProfileCard Props:", trashItemsArray)
         return(
             <div className="profileCard" >
                 <h2>Welcome, {this.props.userObj.name}!</h2>

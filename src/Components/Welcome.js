@@ -23,7 +23,7 @@ class Welcome extends React.Component{
 
 render(){
     console.log("Category Welcome props",this.props)
-    // console.log(this.state)
+    console.log("Welcome state:",this.state)
     return(
         <>
         <h1>Welcome!</h1>

@@ -5,8 +5,8 @@ class AddTrashForm extends React.Component{
         description: "",
         date: "",
         user: this.props.currentUser,
-        trash_category: {},
-        trashCatArray:[this.props.landfill, this.props.recycling, this.props.compost]
+        trash_category: this.props.recycling,
+        // trashCatArray:[this.props.landfill, this.props.recycling, this.props.compost]
     }
 
 
@@ -14,7 +14,7 @@ class AddTrashForm extends React.Component{
         this.setState({
           [event.target.name]: event.target.value,
         });
-        console.log(this.state)
+        console.log("Trash Form State:",this.state);
     };
 
     objChangeHandler = (event) => {
@@ -29,6 +29,7 @@ class AddTrashForm extends React.Component{
 
     render(){
         console.log("Trash Form Props:",this.props);
+        let trashCatArray= [this.props.landfill, this.props.recycling, this.props.compost]
         return(
                 <>
                 <div>
@@ -40,14 +41,16 @@ class AddTrashForm extends React.Component{
                      <input type="text" value={this.state.description} name="description" onChange={this.changeHandler}
                     /><br/><br/>
                     <label>Category:</label><br/><br/>
-                    <select onChange={this.objChangeHandler}>
-                    {this.state.trashCatArray.map((option, index) =>
+                    <select onChange={this.changeHandler}>
+                    {trashCatArray.map((option, index) =>
                     <option key={index}
-                    value={JSON.stringify(option)}>
+                    value={option} name="trash_category">
+                        {console.log("option:",option)}
                         {option.kind}
                     </option>
                     )}
                     </select>
+
                      {/* <input type="text" value={this.state.trash_category} name="trash_category" onChange={this.changeHandler}
                     /><br/><br/> */}
                     <button >Submit</button>
