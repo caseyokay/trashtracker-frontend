@@ -23,7 +23,7 @@ class App extends React.Component{
       <Switch>
 
       <Route path="/welcome" render={()=> <Welcome usersArray={this.state.usersArray}/>} />
-      <Route path="/users/26" render={()=> <UserProfile usersArray={this.state.usersArray}/>} />
+      <Route path="/users/32" render={()=> <UserProfile usersArray={this.state.usersArray}/>} />
       <h1>App.js Checkkk</h1>
       </Switch>
       </>

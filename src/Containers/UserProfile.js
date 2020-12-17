@@ -5,7 +5,7 @@ class UserProfile extends React.Component{
 
 renderUserCard = () => {
     let user26Array = this.props.usersArray.filter(item => {
-        return item.id  === 26
+        return item.id  === 32
     });
     return user26Array.map(userObj => <ProfileCard key={userObj.id} userObj={userObj}/>);
 }
@@ -13,7 +13,7 @@ renderUserCard = () => {
 render(){
     // console.log(this.props.usersArray)
     // const user26 = this.props.usersArray.filter(item => {
-    //     return item.id  === 26
+    //     return item.id  === 32
     // })
     return(
         <>

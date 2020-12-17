@@ -7,7 +7,7 @@ render(){
     //this.props.usersArray.id
     return(
         <>
-        <NavLink to={`/users/26`}>
+        <NavLink to={`/users/32`}>
         <h3>Welcome! Click Here to see your User Page</h3>
         </NavLink>
         </>
