@@ -14,7 +14,7 @@ class App extends React.Component{
 
   componentDidMount() {
     Promise.all([
-    fetch("http://localhost:3000/api/v1/users/38"),
+    fetch("http://localhost:3000/api/v1/users/6"),
     fetch("http://localhost:3000/api/v1/trash_items"),
     fetch("http://localhost:3000/api/v1/trash_categories")])
     .then(([res1, res2, res3]) => {
@@ -56,7 +56,7 @@ class App extends React.Component{
         let newTrashItemsArray = copyTrashItemsArray.filter(e => e.id !== trashObj.id)
         this.setState({trashItemsArray: newTrashItemsArray})
     })
-    .catch(console.log)
+    window.location.reload();
 }
 
   render(){
@@ -64,7 +64,7 @@ class App extends React.Component{
       <>
       <Switch>
      <Route path="/welcome" render={()=> <Welcome currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
-      <Route path="/users/38" render={()=> <UserProfile usersArray={this.state.usersArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem}/>} />
+      <Route path="/users/6" render={()=> <UserProfile currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem}/>} />
       <h1>Trash Tracker App</h1>
       </Switch>
       </>

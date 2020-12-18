@@ -13,12 +13,12 @@ render(){
     return(
         <>
         <h1>Welcome!</h1>
-        <NavLink to={`/users/38`}>
+        <NavLink to={`/users/6`}>
         {/* <NavLink to={`/users/${this.state.currentUser.id}`}> */}
         <h3>Profile Page</h3>
         </NavLink>
         <h4>Use the form below to log your daily trash:</h4>
-       {this.props.trashCategoriesArray? <AddTrashForm currentUser={this.props.currentUser} trashCategoriesArray={this.props.trashCategoriesArray} addNewTrashItem={this.props.addNewTrashItem}/>: null}
+       {this.props? <AddTrashForm currentUser={this.props.currentUser} trashCategoriesArray={this.props.trashCategoriesArray} addNewTrashItem={this.props.addNewTrashItem}/>: null}
        </>
     ) 
 }

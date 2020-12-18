@@ -4,8 +4,8 @@ class AddTrashForm extends React.Component{
     state={
         description: "",
         date: "",
-        user: this.props.currentUser.id,
-        trash_category: 25,
+        user_id: 6,
+        trash_category_id: 25,
     }
 
 
@@ -18,6 +18,9 @@ class AddTrashForm extends React.Component{
 
     objChangeHandler = (event) => {
         console.log(event.target.name)
+        this.setState({
+            trash_category_id: parseInt(event.target.value)
+          });
     }
 
     localSubmitHandler = (event) => {
@@ -43,8 +46,8 @@ class AddTrashForm extends React.Component{
                     <select onChange={this.objChangeHandler}>
                     {this.props.trashCategoriesArray.map((option, index) =>
                     <option key={index}
-                    value={option.id} name="trash_category">
-                        {console.log("option:", option)}
+                    value={option.id} name="trash_category_id">
+                        {console.log("option:", option.id)}
                         {option.kind}
                     </option>
                     )}
