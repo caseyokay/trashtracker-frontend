@@ -17,7 +17,7 @@ class UserProfile extends React.Component{
     renderTrashItems= () => {
         let trashItemsArray = this.props.currentUser.trash_items
         let filteredArray = trashItemsArray.filter(element => element.trash_category.kind.toLowerCase().includes(this.state.searchValue.toLowerCase()))
-        return filteredArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem}/>);
+        return filteredArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem} editDescription={this.props.editDescription}/>);
     }
 
 render(){

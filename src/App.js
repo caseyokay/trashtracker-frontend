@@ -41,7 +41,15 @@ class App extends React.Component{
       body: JSON.stringify(trashObj),
     })
     .then(resp => resp.json())
-    .then(newTrashItem => this.setState({trashItemsArray: [...this.state.trashItemsArray, newTrashItem]}));
+    // .then(newTrashItem => this.setState({trashItemsArray: [...this.state.trashItemsArray, newTrashItem]}));
+    .then((data) => {
+      this.setState({trashItemsArray:[...this.state.trashItemsArray, trashObj]});
+      console.log("adding new trash item:", trashObj)
+    });
+  }
+
+  editDescription = (description) => {
+    console.log("editing", description)
   }
 
 
@@ -64,7 +72,7 @@ class App extends React.Component{
       <>
       <Switch>
      <Route path="/welcome" render={()=> <Welcome currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
-      <Route path="/users/6" render={()=> <UserProfile currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem}/>} />
+      <Route path="/users/6" render={()=> <UserProfile currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />
       <h1>Trash Tracker App</h1>
       </Switch>
       </>
