@@ -38,6 +38,7 @@ class TrashCard extends React.Component{
             <span className="content">
             <h4>Date: {this.props.trashObj.date}</h4>
             <img alt="waste img" src={this.props.trashObj.trash_category.image} />
+            <h4>Type: {this.props.trashObj.trash_category.kind}</h4>
             <h4>Note: {this.props.trashObj.description}</h4> 
             <button onClick={this.clickHandler}>Edit</button>
 
@@ -52,10 +53,8 @@ class TrashCard extends React.Component{
             />
             <button>Update</button>
             </form>}
-           
-
-            <h4>Type: {this.props.trashObj.trash_category.kind}</h4>
             <button onClick={this.localDelete}>Remove</button>
+            <br/><br/>
             </span>
         </div>
         )

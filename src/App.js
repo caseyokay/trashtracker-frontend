@@ -50,6 +50,20 @@ class App extends React.Component{
 
   editDescription = (description, id) => {
     console.log("editing", description, id)
+    fetch(`http://localhost:3000/api/v1/trash_items/${id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        description: description
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        "Accepts": "application/json"
+      },
+    })
+    .then(resp => resp.json())
+    .then(json => console.log(json))
+    window.location.reload();
+
   }
 
 
