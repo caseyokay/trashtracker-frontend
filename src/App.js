@@ -48,8 +48,8 @@ class App extends React.Component{
     });
   }
 
-  editDescription = (description) => {
-    console.log("editing", description)
+  editDescription = (description, id) => {
+    console.log("editing", description, id)
   }
 
 
