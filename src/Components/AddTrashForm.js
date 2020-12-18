@@ -27,6 +27,7 @@ class AddTrashForm extends React.Component{
         event.preventDefault();
         this.props.addNewTrashItem(this.state)
         console.log("Sending state:",this.state)
+        window.location.reload();
     };
 
     render(){
