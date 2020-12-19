@@ -5,7 +5,8 @@ import Search from '../Components/Search';
 
 class UserProfile extends React.Component{
     state={
-        searchValue: ""
+        searchValue: "",
+        clicked: false
     }
 
     searchHandler = (event) => {
@@ -20,13 +21,20 @@ class UserProfile extends React.Component{
         return filteredArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem} editDescription={this.props.editDescription}/>);
     }
 
+    buttonClickHandler = () => {
+        this.setState({
+            clicked: !this.state.clicked
+        })
+    }
+
 render(){
     let trashItemsArray = this.props.currentUser.trash_items
     console.log("UserProfile Props:", trashItemsArray)
     return(
         <div className="profileCard" >
             <h2>Welcome, {this.props.currentUser.name}!</h2>
-            {this.props.currentUser? <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>: null}
+            {this.props.currentUser? <button onClick={this.buttonClickHandler}>🔎</button>: null}
+            {this.state.clicked && <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>}
             <h3>Your logged waste: </h3>
             {trashItemsArray? this.renderTrashItems(): null}
             {/* {this.props.currentUser? <TrashCard trashItemsArray = {this.props.currentUser.trash_items} />: null} */}
