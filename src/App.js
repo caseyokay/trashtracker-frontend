@@ -33,7 +33,7 @@ class App extends React.Component{
   addNewTrashItem = (trashObj) => {
     console.log("Adding new trash in app:", trashObj);
     fetch("http://localhost:3000/api/v1/trash_items",{
-      method: 'POST', // or 'PUT'
+      method: 'POST', 
       headers: {
         'Content-Type': 'application/json',
         "Accepts": "application/json"
