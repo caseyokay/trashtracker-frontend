@@ -33,7 +33,7 @@ render(){
     return(
         <div className="profileCard" >
             <h2>Welcome, {this.props.currentUser.name}!</h2>
-            {this.props.currentUser? <button onClick={this.buttonClickHandler}>🔎</button>: null}
+            {this.props.currentUser? <button onClick={this.buttonClickHandler}>Filter</button>: null}
             {this.state.clicked && <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>}
             <h3>Your logged waste: </h3>
             {trashItemsArray? this.renderTrashItems(): null}

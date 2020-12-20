@@ -2,10 +2,10 @@ function Search(props){
 return(
     <div id="search">
         <form>
-            <label>Filter by Compost/Recycling/Landfill:</label>
+            {/* <label>Sort by Compost/Recycling/Landfill:</label> */}
             <input
             type="text"
-            placeholder="sort by type"
+            placeholder="Compost/Recycling/Landfill"
             name="searchValue"
             value={props.searchValue}
             onChange={props.searchHandler}
