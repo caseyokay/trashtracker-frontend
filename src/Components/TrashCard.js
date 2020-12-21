@@ -16,6 +16,7 @@ class TrashCard extends React.Component{
     //   let trashObj = this.props.trashItemsArray.filter(e => e.id === this.state.id)
     //   console.log("TRASH OBJ", trashObj)
       this.props.editDescription(this.state.description, this.state.id)
+      this.setState({description: ""})
     }
 
     clickHandler = ()  => {
