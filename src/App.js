@@ -61,7 +61,14 @@ class App extends React.Component{
       },
     })
     .then(resp => resp.json())
-    .then(json => console.log(json))
+    // .then(json => console.log(json))
+    .then((data) => {
+      console.log(data)
+      let copyTrashItemsArray = [...this.state.trashItemsArray]
+      let newTrashItemsArray = copyTrashItemsArray.filter(e => e.id !== data.id)
+      console.log(newTrashItemsArray)
+      this.setState({trashItemsArray: [...newTrashItemsArray, data]})
+  })
   }
 
 

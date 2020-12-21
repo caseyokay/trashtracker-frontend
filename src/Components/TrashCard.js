@@ -13,7 +13,9 @@ class TrashCard extends React.Component{
 
     submitHandler = (event) => {
         event.preventDefault()
-        this.props.editDescription(this.state.description, this.state.id)
+    //   let trashObj = this.props.trashItemsArray.filter(e => e.id === this.state.id)
+    //   console.log("TRASH OBJ", trashObj)
+      this.props.editDescription(this.state.description, this.state.id)
     }
 
     clickHandler = ()  => {

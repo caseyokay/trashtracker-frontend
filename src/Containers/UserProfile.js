@@ -15,18 +15,18 @@ class UserProfile extends React.Component{
       };
     
 
-    DRAFTrenderTrashItems= () => {
-        let trashItemsArray = this.props.currentUser.trash_items
-        let filteredArray = trashItemsArray.filter(element => element.trash_category.kind.toLowerCase().includes(this.state.searchValue.toLowerCase()))
-        return filteredArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem} editDescription={this.props.editDescription}/>);
-    }
+    // DRAFTrenderTrashItems= () => {
+    //     let trashItemsArray = this.props.currentUser.trash_items
+    //     let filteredArray = trashItemsArray.filter(element => element.trash_category.kind.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+    //     return filteredArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem} editDescription={this.props.editDescription}/>);
+    // }
 
     renderTrashItems =() => {
         let trashItemsArray = this.props.trashItemsArray
         let userArray = trashItemsArray.filter(e => e.user.id === this.props.currentUser.id)
         console.log("User array:",userArray)
         let filteredArray = userArray.filter(element => element.trash_category.kind.toLowerCase().includes(this.state.searchValue.toLowerCase()))
-        return filteredArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem} editDescription={this.props.editDescription}/>);
+        return filteredArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem} editDescription={this.props.editDescription} trashItemsArray={this.props.trashItemsArray}/>);
     }
 
     buttonClickHandler = () => {
