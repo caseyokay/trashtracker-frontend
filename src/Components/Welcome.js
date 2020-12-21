@@ -13,7 +13,7 @@ render(){
     return(
         <>
         <h1>Welcome!</h1>
-        <NavLink to={`/users/6`}>
+       <NavLink to={`/users/6`}>
         {/* <NavLink to={`/users/${this.state.currentUser.id}`}> */}
         <h3>Profile Page</h3>
         </NavLink>

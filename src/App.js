@@ -43,8 +43,8 @@ class App extends React.Component{
     .then(resp => resp.json())
     // .then(newTrashItem => this.setState({trashItemsArray: [...this.state.trashItemsArray, newTrashItem]}));
     .then((data) => {
-      this.setState({trashItemsArray:[...this.state.trashItemsArray, trashObj]});
-      console.log("adding new trash item:", trashObj)
+      this.setState({trashItemsArray:[...this.state.trashItemsArray, data]});
+      console.log("adding new trash item:", data)
     });
   }
 
