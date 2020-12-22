@@ -5,7 +5,7 @@ class AddTrashForm extends React.Component{
         description: "",
         date: "",
         user_id: 6,
-        trash_category_id: 25,
+        trash_category_id: 1,
     }
 
 
@@ -37,8 +37,11 @@ class AddTrashForm extends React.Component{
     };
 
     render(){
-        console.log("Trash Form Props:",this.props);
-        // let trashCatArray= [this?.props?.landfill, this?.props?.recycling, this?.props?.compost]
+        // console.log("Trash Form Props:",this.props);
+        // let emptyTrashObj = {kind:'', image:''}
+        // let tCA = this.props.trashCategoriesArray
+        // let trashCatArray = tCA.unshift(emptyTrashObj)
+        // console.log("LOOK HERE", trashCatArray, emptyTrashObj)
         return(
                 <>
                 <div>
@@ -54,7 +57,7 @@ class AddTrashForm extends React.Component{
                     {this.props.trashCategoriesArray.map((option, index) =>
                     <option key={index}
                     value={option.id} name="trash_category_id">
-                        {console.log("option:", option.id)}
+                        {/* {console.log("option:", option.id, )} */}
                         {option.kind}
                     </option>
                     )}
