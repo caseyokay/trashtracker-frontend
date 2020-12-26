@@ -92,8 +92,7 @@ class App extends React.Component{
       <div className="App">
       <Switch>
       <Route path="/welcome" render={()=> <Welcome currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
-      <Route path="/users/6" render={()=> <UserProfile currentUser={this.state.currentUser} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />
-      <h1>Trash Tracker App</h1>
+{this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}`}  render={()=> <UserProfile currentUser={this.state.currentUser} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />:null}      <h1>Trash Tracker App</h1>
       </Switch>
       </div>
     );
