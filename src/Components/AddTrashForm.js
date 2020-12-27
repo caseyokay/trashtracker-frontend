@@ -4,8 +4,8 @@ class AddTrashForm extends React.Component{
     state={
         description: "",
         date: "",
-        user_id: 6,
-        trash_category_id: 1,
+        user_id: 18,
+        trash_category_id: 7,
     }
 
 

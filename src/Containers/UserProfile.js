@@ -45,7 +45,7 @@ render(){
             {this.props.currentUser? <button onClick={this.buttonClickHandler}>Filter</button>: null}
             {this.state.clicked && <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>}
             <h3>Your logged waste: </h3>
-            {this.props.trashItemsArray? this.renderTrashItems(): null}
+            {this.props? this.renderTrashItems(): null}
             {/* {this.props.currentUser? <TrashCard trashItemsArray = {this.props.currentUser.trash_items} />: null} */}
         </div>
     )
