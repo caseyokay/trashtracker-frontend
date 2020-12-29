@@ -4,6 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import Welcome from './Components/Welcome';
 import UserProfile from './Containers/UserProfile';
 import NavBar from './Components/NavBar';
+import EditUserForm from './Components/EditUserForm';
 
 
 class App extends React.Component{
@@ -91,8 +92,10 @@ class App extends React.Component{
     console.log("State in App.js: ",this.state)
     return(
       <div className="App">
-        <NavBar />
+       {this.state.currentUser? <NavBar />: null}
       <Switch>
+        
+        {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}/edit`}  render={()=> <EditUserForm currentUser={this.state.currentUser} />} />:null}     
       <Route path="/welcome" render={()=> <Welcome currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
 {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}`}  render={()=> <UserProfile currentUser={this.state.currentUser} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />:null}     
  <h1>Trash Tracker App</h1>
