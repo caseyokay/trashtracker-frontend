@@ -100,7 +100,7 @@ class App extends React.Component{
       body: JSON.stringify(userObj),
     })
     .then(resp => resp.json())
-    .then((data) => console.log(data))
+    .then(console.log)
   }
 
 
