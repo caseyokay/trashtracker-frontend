@@ -5,6 +5,7 @@ import Welcome from './Components/Welcome';
 import UserProfile from './Containers/UserProfile';
 import NavBar from './Components/NavBar';
 import EditUserForm from './Components/EditUserForm';
+import SignUp from './Components/SignUp';
 
 
 class App extends React.Component{
@@ -86,7 +87,23 @@ class App extends React.Component{
         console.log(newTrashItemsArray)
         this.setState({trashItemsArray: newTrashItemsArray})
     })
-}
+  }
+
+
+  signupHandler = (userObj) => {
+    fetch("http://localhost:3000/api/v1/users", {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+        "Accepts": "application/json"
+      },
+      body: JSON.stringify(userObj),
+    })
+    .then(resp => resp.json())
+    .then((data) => console.log(data))
+  }
+
+
 
   render(){
     console.log("State in App.js: ",this.state)
@@ -94,7 +111,7 @@ class App extends React.Component{
       <div className="App">
        {this.state.currentUser? <NavBar />: null}
       <Switch>
-        
+        <Route path="/signup" render={()=> <SignUp submitHandler={this.signupHandler}/>}/>
         {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}/edit`}  render={()=> <EditUserForm currentUser={this.state.currentUser} />} />:null}     
       <Route path="/welcome" render={()=> <Welcome currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
 {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}`}  render={()=> <UserProfile currentUser={this.state.currentUser} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />:null}     

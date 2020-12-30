@@ -12,7 +12,10 @@ class NavBar extends React.Component {
                 <li>User Profile</li>
                 </NavLink>
                 <NavLink to='/users/18/edit'>
-                <li>User Settings</li>
+                <li>Settings</li>
+                </NavLink>
+                <NavLink to='/signup'>
+                <li>Create Account</li>
                 </NavLink>
            </ul> 
         // <div>
