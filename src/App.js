@@ -6,6 +6,7 @@ import UserProfile from './Containers/UserProfile';
 import NavBar from './Components/NavBar';
 import EditUserForm from './Components/EditUserForm';
 import SignUp from './Components/SignUp';
+import LoginForm from './Components/LoginForm';
 
 
 class App extends React.Component{
@@ -103,6 +104,11 @@ class App extends React.Component{
     .then(console.log)
   }
 
+  loginHandler = (userInfo) => {
+    console.log("Loggin In:", userInfo)
+    fetch()
+  }
+
 
 
   render(){
@@ -111,6 +117,7 @@ class App extends React.Component{
       <div className="App">
        {this.state.currentUser? <NavBar />: null}
       <Switch>
+        <Route path="/login" render={() => <LoginForm submitHandler={this.loginHandler}/> }/>
         <Route path="/signup" render={()=> <SignUp submitHandler={this.signupHandler}/>}/>
         {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}/edit`}  render={()=> <EditUserForm currentUser={this.state.currentUser} />} />:null}     
       <Route path="/welcome" render={()=> <Welcome currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />

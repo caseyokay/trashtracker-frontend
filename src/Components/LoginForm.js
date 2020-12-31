@@ -1,9 +1,8 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
-class SignUp extends React.Component{
+class LoginForm extends React.Component{
     state={
-        name: "",
         email: "",
         password: ""
     }
@@ -21,15 +20,14 @@ class SignUp extends React.Component{
 
 render(){
     return(
-        <form className='signup' onSubmit={this.submitHandler}>
-            <input type="text" name="name" placeholder="name" value={this.state.name} onChange={this.changeHandler}/>
+        <form className='login' onSubmit={this.submitHandler}>
             <input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler}/>
             <input type="text" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler}/>
-            <input type="submit" value="sign up"/>
+            <input type="submit" value="login"/>
         </form>
     )
     
 }
 };
 
-export default SignUp;
+export default LoginForm;
