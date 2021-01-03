@@ -2,6 +2,7 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import {Route, Switch, Redirect} from 'react-router-dom';
 import AddTrashForm from './AddTrashForm';
+import AboutPage from './AboutPage';
 import "./Welcome.css";
 
 
@@ -22,6 +23,7 @@ render(){
                 </NavLink>
                 <h4 className="form-header">Use the form below to log your daily trash:</h4>
                {this.props? <AddTrashForm currentUser={this.props.currentUser} trashCategoriesArray={this.props.trashCategoriesArray} addNewTrashItem={this.props.addNewTrashItem}/>: null}
+               <AboutPage/>
                </>
     
         </>
