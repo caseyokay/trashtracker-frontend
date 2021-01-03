@@ -14,6 +14,7 @@ class App extends React.Component{
     currentUser: {},
     trashItemsArray: [],
     trashCategoriesArray: [],
+    user: null
   };
 
   componentDidMount() {
@@ -119,10 +120,10 @@ class App extends React.Component{
       <Switch>
         <Route path="/login" render={() => <LoginForm submitHandler={this.loginHandler}/> }/>
         <Route path="/signup" render={()=> <SignUp submitHandler={this.signupHandler}/>}/>
-        {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}/edit`}  render={()=> <EditUserForm currentUser={this.state.currentUser} />} />:null}     
-      <Route path="/welcome" render={()=> <Welcome currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
-{this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}`}  render={()=> <UserProfile currentUser={this.state.currentUser} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />:null}     
- <h1>Trash Tracker App</h1>
+        {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}/edit`}  render={()=> <EditUserForm user={this.state.user} currentUser={this.state.currentUser} />} />:null}     
+        <Route path="/welcome" render={()=> <Welcome user={this.state.user} currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
+        {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}`}  render={()=> <UserProfile user={this.state.user} currentUser={this.state.currentUser} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />:null}     
+        <h1>Trash Tracker App</h1>
       </Switch>
       </div>
     );

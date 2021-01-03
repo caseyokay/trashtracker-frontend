@@ -1,6 +1,8 @@
 import React from 'react'
 import TrashCard from '../Components/TrashCard';
 import Search from '../Components/Search';
+import {Redirect} from 'react-router-dom';
+
 
 
 class UserProfile extends React.Component{
@@ -40,14 +42,20 @@ render(){
     // let trashItemsArray = this.props.currentUser.trash_items
     console.log("UserProfile Props trashItemsA:", this.props.trashItemsArray)
     return(
-        <div className="profileCard" >
-            <h2>Welcome, {this.props.currentUser.name}!</h2>
-            {this.props.currentUser? <button onClick={this.buttonClickHandler}>Filter</button>: null}
-            {this.state.clicked && <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>}
-            <h3>Your logged waste: </h3>
-            {this.props? this.renderTrashItems(): null}
-            {/* {this.props.currentUser? <TrashCard trashItemsArray = {this.props.currentUser.trash_items} />: null} */}
-        </div>
+        <>
+        {this.props.user ? 
+                <div className="profileCard" >
+                <h2>Welcome, {this.props.currentUser.name}!</h2>
+                {this.props.currentUser? <button onClick={this.buttonClickHandler}>Filter</button>: null}
+                {this.state.clicked && <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>}
+                <h3>Your logged waste: </h3>
+                {this.props? this.renderTrashItems(): null}
+                {/* {this.props.currentUser? <TrashCard trashItemsArray = {this.props.currentUser.trash_items} />: null} */}
+            </div>
+        : 
+        <Redirect to='/login'/> }
+        </>
+
     )
 }
 };
