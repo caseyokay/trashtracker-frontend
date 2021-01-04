@@ -8,10 +8,10 @@ class NavBar extends React.Component {
                <NavLink to='/welcome'>
                    <li>Home Page</li>
                </NavLink>
-             <NavLink to='/users/18'>
+             <NavLink to='/users/26'>
                 <li>User Profile</li>
                 </NavLink>
-                <NavLink to='/users/18/edit'>
+                <NavLink to='/users/26/edit'>
                 <li>Settings</li>
                 </NavLink>
                 <NavLink to='/signup'>

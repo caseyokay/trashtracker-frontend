@@ -43,7 +43,7 @@ render(){
     console.log("UserProfile Props trashItemsA:", this.props.trashItemsArray)
     return(
         <>
-        {this.props.user ? 
+        {this.props.currentUser ? 
                 <div className="profileCard" >
                 <h2>Welcome, {this.props.currentUser.name}!</h2>
                 {this.props.currentUser? <button onClick={this.buttonClickHandler}>Filter</button>: null}

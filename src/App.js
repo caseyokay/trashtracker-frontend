@@ -19,7 +19,7 @@ class App extends React.Component{
 
   componentDidMount() {
     Promise.all([
-    fetch("http://localhost:3000/api/v1/users/18"),
+    fetch("http://localhost:3000/api/v1/users/26"),
     fetch("http://localhost:3000/api/v1/trash_items"),
     fetch("http://localhost:3000/api/v1/trash_categories")])
     .then(([res1, res2, res3]) => {
@@ -105,9 +105,24 @@ class App extends React.Component{
     .then(console.log)
   }
 
+
+  
   loginHandler = (userInfo) => {
-    console.log("Loggin In:", userInfo)
-    fetch()
+    console.log("Logging In:", userInfo)
+    fetch("http://localhost:3000/api/v1/login", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        "Accepts": "application/json"
+      },
+      body: JSON.stringify({
+        email: userInfo.email,
+        password: userInfo.password
+      }),
+    })
+    .then(resp => resp.json())
+    .then(console.log)
+    //setState user: data.user ?
   }
 
 

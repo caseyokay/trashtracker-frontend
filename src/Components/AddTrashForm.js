@@ -4,8 +4,8 @@ class AddTrashForm extends React.Component{
     state={
         description: "",
         date: "",
-        user_id: 18,
-        trash_category_id: 7,
+        user_id: 26,
+        trash_category_id: 19,
     }
 
 
@@ -30,8 +30,8 @@ class AddTrashForm extends React.Component{
         this.setState({
             description: "",
             date: "",
-            user_id: 6,
-            trash_category_id: 25,
+            user_id: 26,
+            trash_category_id: 19,
         })
         // window.location.reload();
     };

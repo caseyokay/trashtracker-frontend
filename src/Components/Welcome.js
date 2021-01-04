@@ -17,7 +17,7 @@ render(){
         {/* {this.props.user ?  */}
                 <>
                 <h1 className="header">Welcome!</h1>
-               <NavLink to={`/users/18`}>
+               <NavLink to={`/users/26`}>
                 {/* <NavLink to={`/users/${this.state.currentUser.id}`}> */}
                 <h3>Profile Page</h3>
                 </NavLink>

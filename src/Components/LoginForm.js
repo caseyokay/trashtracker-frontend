@@ -13,7 +13,6 @@ class LoginForm extends React.Component{
 
     submitHandler = (e) => {
         e.preventDefault()
-        console.log("Signing Up:", this.state)
         this.props.submitHandler(this.state)
         //pass down from props
     }
