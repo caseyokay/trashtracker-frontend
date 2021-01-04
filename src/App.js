@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
 import Welcome from './Components/Welcome';
 import UserProfile from './Containers/UserProfile';
 import NavBar from './Components/NavBar';
@@ -17,9 +17,10 @@ class App extends React.Component{
     user: null
   };
 
+
   componentDidMount() {
     Promise.all([
-    fetch("http://localhost:3000/api/v1/users/26"),
+    fetch("http://localhost:3000/api/v1/users/6"),
     fetch("http://localhost:3000/api/v1/trash_items"),
     fetch("http://localhost:3000/api/v1/trash_categories")])
     .then(([res1, res2, res3]) => {
@@ -106,7 +107,7 @@ class App extends React.Component{
   }
 
 
-  
+
   loginHandler = (userInfo) => {
     console.log("Logging In:", userInfo)
     fetch("http://localhost:3000/api/v1/login", {
@@ -117,12 +118,33 @@ class App extends React.Component{
       },
       body: JSON.stringify({
         email: userInfo.email,
-        password: userInfo.password
+        password: userInfo.password,
+        // Authorization: `Bearer ${token}`
+
       }),
     })
     .then(resp => resp.json())
-    .then(console.log)
-    //setState user: data.user ?
+    .then(data => {
+      console.log("token: ", data.jwt)
+      localStorage.setItem("token", data.jwt)
+      this.setLocalStorage(data)
+      this.setState({user: data.user}) 
+      this.props.history.push("/welcome")
+    })
+  }
+
+  setLocalStorage=(data)=>{
+    const token = localStorage.getItem("token")
+    console.log("User data:", data)
+    console.log("logged in user token:", token)
+    if (token){
+      fetch("http://localhost:3000/api/v1/profile", {
+        method: "GET",
+        headers: {Authorization: `Bearer ${token}`},
+      })
+    } else {
+      this.props.history.push("/signup")
+    }
   }
 
 
@@ -145,4 +167,4 @@ class App extends React.Component{
   }
 };
 
-export default App;
+export default withRouter(App);

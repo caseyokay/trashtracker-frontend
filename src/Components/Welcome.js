@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, withRouter} from 'react-router-dom'
 import {Route, Switch, Redirect} from 'react-router-dom';
 import AddTrashForm from './AddTrashForm';
 import AboutPage from './AboutPage';
@@ -32,4 +32,4 @@ render(){
 }
 }
 
-export default Welcome;
+export default withRouter(Welcome);
