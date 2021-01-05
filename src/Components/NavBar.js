@@ -21,6 +21,7 @@ class NavBar extends React.Component {
                 <NavLink to='/signup'>
                 <li>Create Account</li>
                 </NavLink>
+                
                 {this.props.user ? <li onClick={this.props.clickHandler}>Logout</li>
                 :
                 <NavLink to='/login'>

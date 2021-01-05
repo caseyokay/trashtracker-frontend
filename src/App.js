@@ -170,7 +170,7 @@ class App extends React.Component{
         <Route path="/login" render={() => <LoginForm submitHandler={this.loginHandler}/> }/>
         <Route path="/signup" render={()=> <SignUp submitHandler={this.signupHandler}/>}/>
         {this.state.user?<Route path= {`/users/${this.state.user.id}/edit`}  render={()=> <EditUserForm user={this.state.user} currentUser={this.state.currentUser} />} />:null}     
-        <Route path="/welcome" render={()=> <Welcome user={this.state.user} currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
+        <Route path="/welcome" render={()=> <Welcome user={this.state.user}  trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
         {this.state.user?<Route path= {`/users/${this.state.user.id}`}  render={()=> <UserProfile user={this.state.user} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />:null}     
         <h1>Trash Tracker App</h1>
       </Switch>
