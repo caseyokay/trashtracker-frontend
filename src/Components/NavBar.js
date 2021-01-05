@@ -2,6 +2,9 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 
 class NavBar extends React.Component {
+    clickHandler = () => {
+
+    }
     render(){
         return(
            <ul className="NavBar">
@@ -17,12 +20,11 @@ class NavBar extends React.Component {
                 <NavLink to='/signup'>
                 <li>Create Account</li>
                 </NavLink>
-                {this.props.user ? 
-                    <li>Logout</li>
+                {this.props.user ? <li onClick={this.props.clickHandler}>Logout</li>
                 :
-                    <NavLink to='/login'>
-                    <li>Login</li>
-                    </NavLink>
+                <NavLink to='/login'>
+                <li>Login</li>
+                </NavLink>
                 }
            </ul> 
         // <div>

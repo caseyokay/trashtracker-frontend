@@ -151,13 +151,19 @@ class App extends React.Component{
     }
   }
 
+  logOutHandler = () => {
+    localStorage.removeItem("token")
+    this.props.history.push("/login")
+    this.setState({user: null})
+  }
+
 
 
   render(){
     console.log("State in App.js: ",this.state)
     return(
       <div className="App">
-        <NavBar user={this.state.user}/>
+        <NavBar user={this.state.user} clickHandler={this.logOutHandler}/>
       <Switch>
         <Route path="/login" render={() => <LoginForm submitHandler={this.loginHandler}/> }/>
         <Route path="/signup" render={()=> <SignUp submitHandler={this.signupHandler}/>}/>
