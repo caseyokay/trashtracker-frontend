@@ -17,9 +17,13 @@ class NavBar extends React.Component {
                 <NavLink to='/signup'>
                 <li>Create Account</li>
                 </NavLink>
-                <NavLink to='/login'>
-                <li>Login</li>
-                </NavLink>
+                {this.props.user ? 
+                    <li>Logout</li>
+                :
+                    <NavLink to='/login'>
+                    <li>Login</li>
+                    </NavLink>
+                }
            </ul> 
         // <div>
         //     <NavLink to='/welcome'>Welcome</NavLink>

@@ -147,7 +147,7 @@ class App extends React.Component{
       .then(resp => resp.json())
       .then(data => this.setState({user: data.user}))
     } else {
-      this.props.history.push("/signup")
+      this.props.history.push("/login")
     }
   }
 
@@ -157,7 +157,7 @@ class App extends React.Component{
     console.log("State in App.js: ",this.state)
     return(
       <div className="App">
-       {this.state.currentUser? <NavBar />: null}
+        <NavBar user={this.state.user}/>
       <Switch>
         <Route path="/login" render={() => <LoginForm submitHandler={this.loginHandler}/> }/>
         <Route path="/signup" render={()=> <SignUp submitHandler={this.signupHandler}/>}/>
