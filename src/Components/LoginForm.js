@@ -19,11 +19,15 @@ class LoginForm extends React.Component{
 
 render(){
     return(
+        <>
+        <img alt="logo" src="https://i.ibb.co/PxmjM2L/Screen-Shot-2021-01-05-at-3-45-42-PM.png"/>
+        <h3>Welcome Back</h3>
         <form className='login' onSubmit={this.submitHandler}>
             <input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler}/>
             <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler}/>
             <input type="submit" value="login"/>
         </form>
+        </>
     )
     
 }

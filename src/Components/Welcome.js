@@ -28,7 +28,8 @@ render(){
                 <h4 className="form-header">Use the form below to log your daily trash:</h4>
                {this.props? <AddTrashForm user={this.props.user} trashCategoriesArray={this.props.trashCategoriesArray} addNewTrashItem={this.props.addNewTrashItem}/>:null} 
                
-               {this.props? <TrashContainer trashItemsArray={this.props.trashItemsArray} /> : null}
+               
+               {/* {this.props? <TrashContainer trashItemsArray={this.props.trashItemsArray} /> : null} */}
                
 
                <AboutPage/>

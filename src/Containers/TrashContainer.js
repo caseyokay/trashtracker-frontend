@@ -14,7 +14,7 @@ class TrashContainer extends React.Component{
 render(){
     return(
         <>
-        <p>Trash go here</p>,
+        <p>Pre-set options for your trash log:</p>,
         {this.props? this.renderTrashItems(): null}
         </>
     )
