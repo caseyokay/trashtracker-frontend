@@ -11,30 +11,26 @@ import LoginForm from './Components/LoginForm';
 
 class App extends React.Component{
   state={
-    currentUser: {},
+    usersArray: [],
     trashItemsArray: [],
     trashCategoriesArray: [],
-    usersArray: [],
     user: null
   };
 
-
   componentDidMount() {
     Promise.all([
-    fetch("http://localhost:3000/api/v1/users/24"),
+    fetch("http://localhost:3000/api/v1/users"),
     fetch("http://localhost:3000/api/v1/trash_items"),
     fetch("http://localhost:3000/api/v1/trash_categories"),
-    fetch("http://localhost:3000/api/v1/users")
   ])
-    .then(([res1, res2, res3, res4]) => {
-       return Promise.all([res1.json(), res2.json(), res3.json(), res4.json()]) 
+    .then(([res1, res2, res3]) => {
+       return Promise.all([res1.json(), res2.json(), res3.json()]) 
     })
-    .then(([data1, data2, data3, data4]) =>{
+    .then(([data1, data2, data3]) =>{
       this.setState({
-        currentUser:data1,
+        usersArray: data1,
         trashItemsArray:data2,
         trashCategoriesArray:data3,
-        usersArray: data4
       })
     });
     console.log("CDM: ", this.state)
@@ -108,7 +104,13 @@ class App extends React.Component{
       body: JSON.stringify(userObj),
     })
     .then(resp => resp.json())
-    .then(console.log)
+    .then(data => {
+      console.log("token: ", data)
+      localStorage.setItem("token", data.jwt)
+      this.setLocalStorage(data)
+      this.setState({user: data.user}) 
+      this.props.history.push("/welcome")
+    })
   }
 
 
@@ -163,13 +165,13 @@ class App extends React.Component{
     console.log("State in App.js: ",this.state)
     return(
       <div className="App">
-        <NavBar user={this.state.user} clickHandler={this.logOutHandler}/>
+        {this.state.user?<NavBar user={this.state.user} clickHandler={this.logOutHandler}/>:null}
       <Switch>
         <Route path="/login" render={() => <LoginForm submitHandler={this.loginHandler}/> }/>
         <Route path="/signup" render={()=> <SignUp submitHandler={this.signupHandler}/>}/>
-        {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}/edit`}  render={()=> <EditUserForm user={this.state.user} currentUser={this.state.currentUser} />} />:null}     
+        {this.state.user?<Route path= {`/users/${this.state.user.id}/edit`}  render={()=> <EditUserForm user={this.state.user} currentUser={this.state.currentUser} />} />:null}     
         <Route path="/welcome" render={()=> <Welcome user={this.state.user} currentUser={this.state.currentUser} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
-        {this.state.currentUser?<Route path= {`/users/${this.state.currentUser.id}`}  render={()=> <UserProfile user={this.state.user} currentUser={this.state.currentUser} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />:null}     
+        {this.state.user?<Route path= {`/users/${this.state.user.id}`}  render={()=> <UserProfile user={this.state.user} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />:null}     
         <h1>Trash Tracker App</h1>
       </Switch>
       </div>

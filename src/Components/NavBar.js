@@ -11,7 +11,8 @@ class NavBar extends React.Component {
                <NavLink to='/welcome'>
                    <li>Home Page</li>
                </NavLink>
-             <NavLink to='/users/26'>
+             <NavLink to={`/users/${this.props.user.id}`}>
+                 
                 <li>User Profile</li>
                 </NavLink>
                 <NavLink to='/users/26/edit'>

@@ -4,14 +4,15 @@ class AddTrashForm extends React.Component{
     state={
         description: "",
         date: "",
-        user_id: 26,
-        trash_category_id: 19,
+        user_id: "",
+        trash_category_id: "10",
     }
 
 
     changeHandler = (event) => {
         this.setState({
           [event.target.name]: event.target.value,
+          user_id: this.props.user.id
         });
         console.log("Trash Form State:",this.state);
     };
@@ -30,18 +31,12 @@ class AddTrashForm extends React.Component{
         this.setState({
             description: "",
             date: "",
-            user_id: 26,
-            trash_category_id: 19,
+            user_id: "",
+            trash_category_id: "10",
         })
-        // window.location.reload();
     };
 
     render(){
-        // console.log("Trash Form Props:",this.props);
-        // let emptyTrashObj = {kind:'', image:''}
-        // let tCA = this.props.trashCategoriesArray
-        // let trashCatArray = tCA.unshift(emptyTrashObj)
-        // console.log("LOOK HERE", trashCatArray, emptyTrashObj)
         return(
                 <>
                 <div>

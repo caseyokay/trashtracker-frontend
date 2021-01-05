@@ -26,7 +26,7 @@ class UserProfile extends React.Component{
     renderTrashItems =() => {
         let trashItemsArray = this.props.trashItemsArray
         console.log(trashItemsArray)
-        let userArray = trashItemsArray.filter(e => e.user.id === this.props.currentUser.id)
+        let userArray = trashItemsArray.filter(e => e.user.id === this.props.user.id)
         console.log("User array:",userArray)
         let filteredArray = userArray.filter(element => element.trash_category.kind.toLowerCase().includes(this.state.searchValue.toLowerCase()))
         return filteredArray.map(trashObj => <TrashCard key={trashObj.id} trashObj={trashObj} deleteTrashItem={this.props.deleteTrashItem} editDescription={this.props.editDescription} trashItemsArray={this.props.trashItemsArray}/>);
@@ -43,10 +43,10 @@ render(){
     console.log("UserProfile Props trashItemsA:", this.props.trashItemsArray)
     return(
         <>
-        {this.props.currentUser ? 
+        {this.props.user ? 
                 <div className="profileCard" >
-                <h2>Welcome, {this.props.currentUser.name}!</h2>
-                {this.props.currentUser? <button onClick={this.buttonClickHandler}>Filter</button>: null}
+                <h2>Welcome, {this.props.user.name}!</h2>
+                {this.props.user? <button onClick={this.buttonClickHandler}>Filter</button>: null}
                 {this.state.clicked && <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>}
                 <h3>Your logged waste: </h3>
                 {this.props? this.renderTrashItems(): null}

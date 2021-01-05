@@ -56,6 +56,7 @@ class TrashCard extends React.Component{
             />
             <button>Update</button>
             </form>}
+            
             <button onClick={this.localDelete}>Remove</button>
             <br/><br/>
             </span>
