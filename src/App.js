@@ -145,7 +145,7 @@ class App extends React.Component{
         headers: {Authorization: `Bearer ${token}`},
       })
       .then(resp => resp.json())
-      .then(data => console.log("Local Storage:", data))
+      .then(data => this.setState({user: data.user}))
     } else {
       this.props.history.push("/signup")
     }
