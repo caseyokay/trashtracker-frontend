@@ -49,8 +49,9 @@ render(){
                 {this.props.user? <button onClick={this.buttonClickHandler}>Filter</button>: null}
                 {this.state.clicked && <Search searchValue={this.state.searchValue} searchHandler={this.searchHandler}/>}
                 <h3>Your logged waste: </h3>
+                <div className="profileTrash">
                 {this.props? this.renderTrashItems(): null}
-                {/* {this.props.currentUser? <TrashCard trashItemsArray = {this.props.currentUser.trash_items} />: null} */}
+                </div>
             </div>
         : 
         <Redirect to='/login'/> }

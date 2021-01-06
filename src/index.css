@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -12,9 +13,11 @@ code {
     monospace;
 }
 
-* {
+/* * {
   border: 1px solid black;
-}
+  
+} */
+
 
 /* ////////NAV BAR//////// */
 
@@ -26,6 +29,7 @@ code {
   display: inline-block;
   margin: 10px 10px 10px 10px;
   text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 .NavBar li a {
@@ -46,13 +50,38 @@ code {
 /* ////////Trash Items//////// */
 
 .trashImage {
-  max-width: 200px;
+  max-width: 150px;
+}
+
+.trashCard{
+  margin: 5px 10px;
+  padding: 10px;
+  background-color: rgb(245,245,245);
+}
+/* color: rgb(203, 236, 203); */
+
+
+.trashCard h4{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  text-align: center;
 }
 
 /* ////////Welcome Page/////// */
 .welcome, .profileCard{
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   margin: 0px auto;
+  color: rgb(74,74,74);
+
 }
 
 /* ////////Profile Page/////// */
+.profileTrash{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+

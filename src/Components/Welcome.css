@@ -1,7 +1,4 @@
-.header{
-    color: red;
+.header, .form-header{
+    color: rgb(74,74,74);
 }
 
-.form-header{
-    color: green;
-}
