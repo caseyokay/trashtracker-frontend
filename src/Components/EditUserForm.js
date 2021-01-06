@@ -19,10 +19,23 @@ class EditUserForm extends React.Component{
             <>
             {this.props.user ? 
 
-                <>
+                <div className="editUser">
                 <h3>Edit User Form</h3>
-                </>
+                <form>
+                <label>Name:</label><br/><br/>
+                    <input type="text" value={this.props.user.name} name="name" onChange={this.changeHandler}
+                    />
+                    <button>Edit</button>
+                </form> <br/><br/>
 
+                <form>
+                <label>Email:</label><br/><br/>
+                    <input type="text" value={this.props.user.email} name="email" onChange={this.changeHandler}
+                    />
+                    <button>Edit</button>
+                </form> <br/><br/>
+                
+                </div>
             : <Redirect to='/login'/> 
             }
             </>
