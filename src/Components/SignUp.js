@@ -22,12 +22,12 @@ class SignUp extends React.Component{
 render(){
     return(
         <>
-        <img alt="logo" src="https://i.ibb.co/PxmjM2L/Screen-Shot-2021-01-05-at-3-45-42-PM.png"/>
+        <img className="logo" alt="logo" src="https://i.ibb.co/PxmjM2L/Screen-Shot-2021-01-05-at-3-45-42-PM.png"/>
         <h3>Please Sign Up</h3>        
         <form className='signup' onSubmit={this.submitHandler}>
-            <input type="text" name="name" placeholder="name" value={this.state.name} onChange={this.changeHandler}/>
-            <input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler}/>
-            <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler}/>
+            <input type="text" name="name" placeholder="name" value={this.state.name} onChange={this.changeHandler}/><br></br>
+            <input type="text" name="email" placeholder="email" value={this.state.email} onChange={this.changeHandler}/><br></br>
+            <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.changeHandler}/><br></br>
             <input type="submit" value="sign up"/>
         </form>
         <NavLink to={`/login`}> 

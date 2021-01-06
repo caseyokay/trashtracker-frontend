@@ -31,7 +31,7 @@ class PresetTrashCard extends React.Component{
         return(
         <div className="trashCard">
             <span className="content">
-            <img alt="waste img" src={this.props.trashObj.image} />
+            <img className="trashImage" alt="waste img" src={this.props.trashObj.image} />
             <h4>Date: {this.props.trashObj.date}</h4>
             <h4>Type: {this.props.trashObj.trash_category.kind}</h4>
             <h4>Note: {this.props.trashObj.description}</h4> 

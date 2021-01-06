@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  border: 1px solid black;
+}
+
+/* ////////NAV BAR//////// */
+
+.NavBar{
+  text-align: center;
+}
+
+.NavBar li {
+  display: inline-block;
+  margin: 10px 10px 10px 10px;
+  text-decoration: none;
+
+}
+.NavBar li a {
+  text-decoration: none;
+}
+
+.NavBar li:hover{
+ color: rgb(39, 155, 39);
+}
+
+/* ////////Login Singup//////// */
+
+.logo{
+  width: 40%;
+  margin: 0px auto;
+}
+
+/* ////////Trash Items//////// */
+
+.trashImage {
+  max-width: 200px;
+}
+
+/* ////////Welcome Page/////// */
+.welcome, .profileCard{
+  text-align: center;
+  margin: 0px auto;
+}
+
+/* ////////Profile Page/////// */

@@ -14,7 +14,7 @@ render(){
     console.log("Category Welcome props",this.props)
     console.log("Welcome state:",this.state)
     return(
-        <>
+        <div className="welcome">
         {/* {this.props.user ?  */}
             
                 <h1 className="header">Welcome!</h1>
@@ -35,7 +35,7 @@ render(){
                <AboutPage/>
 
             
-        </>
+        </div>
 
     ) 
 }
