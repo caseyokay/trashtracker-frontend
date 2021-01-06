@@ -17,13 +17,13 @@ render(){
         <div className="welcome">
         {/* {this.props.user ?  */}
             
-                <h1 className="header">Welcome!</h1>
-                
+                <h1 className="header">Welcome to TrashTracker!</h1>
+{/*                 
                 {this.props.user? 
                 <NavLink to={`/users/${this.props.user.id}`}> 
                 <h3>Profile Page</h3>
                 </NavLink>
-                :null}
+                :null} */}
 
                 <h4 className="form-header">Use the form below to log your daily trash:</h4>
                {this.props? <AddTrashForm user={this.props.user} trashCategoriesArray={this.props.trashCategoriesArray} addNewTrashItem={this.props.addNewTrashItem}/>:null} 

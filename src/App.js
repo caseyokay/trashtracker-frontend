@@ -168,6 +168,7 @@ class App extends React.Component{
       })
       .then(resp => resp.json())
       .then(data => this.setState({user: data.user}))
+      this.props.history.push("/welcome")
     } else {
       this.props.history.push("/signup")
     }
@@ -189,7 +190,7 @@ class App extends React.Component{
       <Switch>
         <Route path="/login" render={() => <LoginForm submitHandler={this.loginHandler}/> }/>
         <Route path="/signup" render={()=> <SignUp submitHandler={this.signupHandler}/>}/>
-        {this.state.user?<Route path= {`/users/${this.state.user.id}/edit`}  render={()=> <EditUserForm user={this.state.user} currentUser={this.state.currentUser} />} />:null}     
+        {this.state.user?<Route path= {`/users/${this.state.user.id}/edit`}  render={()=> <EditUserForm user={this.state.user} />} />:null}     
         <Route path="/welcome" render={()=> <Welcome user={this.state.user}  trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} addNewTrashItem={this.addNewTrashItem} />} />
         {this.state.user?<Route path= {`/users/${this.state.user.id}`}  render={()=> <UserProfile user={this.state.user} trashItemsArray={this.state.trashItemsArray} trashCategoriesArray={this.state.trashCategoriesArray} deleteTrashItem={this.deleteTrashItem} editDescription={this.editDescription}/>} />:null}     
         <h1>Trash Tracker App</h1>
