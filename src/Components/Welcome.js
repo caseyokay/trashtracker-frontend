@@ -29,7 +29,7 @@ render(){
                {this.props? <AddTrashForm user={this.props.user} trashCategoriesArray={this.props.trashCategoriesArray} addNewTrashItem={this.props.addNewTrashItem}/>:null} 
                
                
-               {/* {this.props? <TrashContainer trashItemsArray={this.props.trashItemsArray} /> : null} */}
+               {this.props? <TrashContainer user={this.props.user} trashItemsArray={this.props.trashItemsArray} addNewTrashItem={this.props.addNewTrashItem} /> : null}
                
 
                <AboutPage/>

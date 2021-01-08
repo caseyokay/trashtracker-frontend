@@ -8,14 +8,17 @@ class TrashContainer extends React.Component{
         console.log(trashItemsArray)
         let userArray = trashItemsArray.filter(e => e.user.name === "preset")
         console.log("User array:",userArray)
-      return userArray.map(trashObj => <PresetTrashCard key={trashObj.id} trashObj={trashObj} trashItemsArray={this.props.trashItemsArray}/>);
+      return userArray.map(trashObj => <PresetTrashCard key={trashObj.id} trashObj={trashObj} user={this.props.user} trashItemsArray={this.props.trashItemsArray} addNewTrashItem={this.props.addNewTrashItem} />);
     }
 
 render(){
     return(
         <>
-        <p>Pre-set options for your trash log:</p>,
+        <h4>Pre-set options for your trash log:</h4>
+        <div className="welcomeTrash">
+        <br></br>
         {this.props? this.renderTrashItems(): null}
+        </div>
         </>
     )
 }

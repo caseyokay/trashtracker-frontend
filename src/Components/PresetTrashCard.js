@@ -2,32 +2,40 @@ import React from 'react'
 
 class PresetTrashCard extends React.Component{
     state={
-        clicked: false,
         description: "",
-        id: ""
+        date: "",
+        image: "",
+        preset: false,
+        user_id: "",
+        trash_category_id: ""
     }
 
-    localDelete= () => {
-        this.props.deleteTrashItem(this.props.trashObj)
-    }
-
-    submitHandler = (event) => {
-        event.preventDefault()
-    //   let trashObj = this.props.trashItemsArray.filter(e => e.id === this.state.id)
-    //   console.log("TRASH OBJ", trashObj)
-      this.props.editDescription(this.state.description, this.state.id)
-      this.setState({description: ""})
-    }
 
     clickHandler = ()  => {
+        console.log("CLICK", this.props.trashObj)
         this.setState({
-            clicked: !this.state.clicked
+            description: this.props.trashObj.description,
+            date: this.props.trashObj.date,
+            image: this.props.trashObj.image,
+            preset: true,
+            user_id: this.props.user.id, 
+            trash_category_id: this.props.trashObj.trash_category.id
+        })
+    }
+
+    localSubmitHandler = () => {
+        console.log("Submit Handler",this.state)
+        this.props.addNewTrashItem(this.state)
+        this.setState({
+            preset: false
         })
     }
 
   
 
     render(){
+        console.log(this.state)
+        {this.state.preset===true && this.localSubmitHandler()}
         return(
         <div className="trashCard">
             <span className="content">
@@ -35,8 +43,9 @@ class PresetTrashCard extends React.Component{
             <h4>Date: {this.props.trashObj.date}</h4>
             <h4>Type: {this.props.trashObj.trash_category.kind}</h4>
             <h4>Note: {this.props.trashObj.description}</h4> 
-            {this.state.clicked ? <button >Logged!</button>
-            : <button onClick={this.clickHandler}>Add to Log</button>}
+            {/* {this.state.clicked ? <button >Logged!</button>
+            :}  */}
+            <button onClick={this.clickHandler}>Add to Log</button>
             </span>
         </div>
         )

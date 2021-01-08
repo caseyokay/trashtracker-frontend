@@ -56,7 +56,7 @@ class App extends React.Component{
   }
 
   addPresetTrashItem = (trashObj) => {
-    console.log("Linking trash to user:", trashObj);
+    console.log("Linking trash to user:", trashObj, this.state.user);
     fetch("http://localhost:3000/api/v1/trash_items",{
       method: 'POST', 
       headers: {

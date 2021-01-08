@@ -83,6 +83,14 @@ code {
   padding: 15px;
 }
 
+.welcomeTrash{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
 /* ////////Profile Page/////// */
 .profileTrash{
   display: flex;
