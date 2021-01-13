@@ -22,9 +22,9 @@ class PresetTrashCard extends React.Component{
         )
         // {this.state.user_id === this.props.user.id && this.localSubmitHandler()}
     }
-    localSubmitHandler = () => {
-        console.log("Submit Handler", this.state)
-        this.props.addNewTrashItem(this.state)
+    localSubmitHandler = (trashObj) => {
+        console.log("Submit Handler", trashObj)
+        this.props.addNewTrashItem(trashObj)
         this.setState({
             description: "",
             date: "",
