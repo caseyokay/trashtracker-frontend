@@ -5,7 +5,7 @@ class AddTrashForm extends React.Component{
         description: "",
         date: "",
         user_id: "",
-        trash_category_id: 10,
+        trash_category_id: 4,
     }
 
 
@@ -32,7 +32,7 @@ class AddTrashForm extends React.Component{
             description: "",
             date: "",
             user_id: "",
-            trash_category_id: "10",
+            trash_category_id: "4",
         })
     };
 

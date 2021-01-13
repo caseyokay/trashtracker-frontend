@@ -55,26 +55,6 @@ class App extends React.Component{
     });
   }
 
-  addPresetTrashItem = (trashObj) => {
-    console.log("Linking trash to user:", trashObj, this.state.user);
-    fetch("http://localhost:3000/api/v1/trash_items",{
-      method: 'POST', 
-      headers: {
-        'Content-Type': 'application/json',
-        "Accepts": "application/json"
-      },
-      body: JSON.stringify({
-        user: this.state.user
-      }),
-    })
-    .then(resp => resp.json())
-    // .then(newTrashItem => this.setState({trashItemsArray: [...this.state.trashItemsArray, newTrashItem]}));
-    .then((data) => {
-      this.setState({trashItemsArray:[...this.state.trashItemsArray, data]});
-      console.log("adding new trash item:", data)
-    });
-  }
-
   editDescription = (description, id) => {
     console.log("editing", description, id)
     fetch(`http://localhost:3000/api/v1/trash_items/${id}`, {

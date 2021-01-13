@@ -41,9 +41,9 @@ class TrashCard extends React.Component{
             <span className="content">
             <h4>Date: {this.props.trashObj.date}</h4>
             {this.props.trashObj.preset ?
-                <img className="trashImage" alt="waste img" src={this.props.trashObj.image} />
+                <img className="trashImage" alt="waste img" src={this.props.trashObj.trash_category.image} />
                 :
-                <img className="trashImage" alt="waste img" src={this.props.trashObj.trash_category.image}/>
+                <img className="trashImage" alt="waste img" src={this.props.trashObj.image}/>
             }
           
             <h4>Type: {this.props.trashObj.trash_category.kind}</h4>
