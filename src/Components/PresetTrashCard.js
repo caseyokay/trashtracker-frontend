@@ -5,37 +5,37 @@ class PresetTrashCard extends React.Component{
         description: "",
         date: "",
         image: "",
-        preset: false,
+        preset: true,
         user_id: "",
         trash_category_id: ""
     }
-
-
     clickHandler = ()  => {
         console.log("CLICK", this.props.trashObj)
         this.setState({
             description: this.props.trashObj.description,
             date: this.props.trashObj.date,
             image: this.props.trashObj.image,
-            preset: true,
+           
             user_id: this.props.user.id, 
             trash_category_id: this.props.trashObj.trash_category.id
-        })
+        }, () => {this.localSubmitHandler(this.state)}
+        )
+        // {this.state.user_id === this.props.user.id && this.localSubmitHandler()}
     }
-
     localSubmitHandler = () => {
-        console.log("Submit Handler",this.state)
+        console.log("Submit Handler", this.state)
         this.props.addNewTrashItem(this.state)
         this.setState({
-            preset: false
+            description: "",
+            date: "",
+            image: "",
+            user_id: "",
+            trash_category_id: ""
         })
     }
-
-  
-
     render(){
         console.log(this.state)
-        {this.state.preset===true && this.localSubmitHandler()}
+      // {this.state.user_id === this.props.user.id && this.localSubmitHandler()}
         return(
         <div className="trashCard">
             <span className="content">
