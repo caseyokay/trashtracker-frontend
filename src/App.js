@@ -163,7 +163,7 @@ class App extends React.Component{
 
 
   render(){
-    console.log("State in App.js: ",this.state)
+    console.log("State in App: ",this.state)
     return(
       <div className="App">
         {this.state.user?<NavBar user={this.state.user} clickHandler={this.logOutHandler}/>:null}

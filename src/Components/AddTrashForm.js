@@ -4,8 +4,10 @@ class AddTrashForm extends React.Component{
     state={
         description: "",
         date: "",
+        image: "https://i.ibb.co/yPZyqWx/Screen-Shot-2021-01-04-at-1-41-32-PM.png",
+        preset: false,
         user_id: "",
-        trash_category_id: 4,
+        trash_category_id: 1,
     }
 
 
@@ -32,7 +34,7 @@ class AddTrashForm extends React.Component{
             description: "",
             date: "",
             user_id: "",
-            trash_category_id: "4",
+            trash_category_id: "1",
         })
     };
 
