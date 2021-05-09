@@ -6,6 +6,7 @@ class Resources extends React.Component {
             <div className="resources">
             <p>
                 More information and other ways you can take action:
+                Links to ways to take action
             </p>
             </div>
         )
