@@ -4,7 +4,6 @@ The goal for zero waste to to reuse all products, and for no trash to be sent to
 
 This app challenges you to keep track of all the waste you produce.
 
-
 ## User will be able to:
 - View their personal page
 - Which displays all of the trash they have tossed
