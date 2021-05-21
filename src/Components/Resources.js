@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect, NavLink } from 'react-router-dom';
+
 
 class Resources extends React.Component {
     render(){
@@ -7,6 +9,8 @@ class Resources extends React.Component {
             <p>
                 More information and other ways you can take action:
                 Links to ways to take action
+                
+                What to compost
             </p>
             </div>
         )
