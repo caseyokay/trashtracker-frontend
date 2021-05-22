@@ -22,6 +22,9 @@ class AboutPage extends React.Component {
             <p>
             Much of what is sold today is meant to be mindless tossed out. We hope that by having you challenge yourself and keep track of your trash for a day, or a week, (or a year!) you are empowered to buy and consume in a more intentional and low impact manner. ♥
             </p>
+            <p>
+                TrashTracker will help you answer these questions. 
+            </p>
             </div>
         )
     }
